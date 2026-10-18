@@ -24,9 +24,12 @@ app.use((req, res, next) => {
 
 console.log('Hello World');
 
+
 app.get('/_api/hello-console', (req, res) => {
+  console.log('Hello World');
   res.json({ message: 'Hello World' });
 });
+
 
 
 // Logger middleware
