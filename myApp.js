@@ -6,19 +6,25 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+// 7. Root-Level Request Logger Middleware
+// Must be before all routes
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
+  next();
+});
+
 // 1. Meet the Node console
 console.log('Hello World');
 
-
+// 2-3. Serve HTML File
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-
 // 4. Serve Static Assets
 app.use('/public', express.static(__dirname + '/public'));
 
-// 5. Serve JSON on a Specific Route
+// 5-6. Serve JSON and use environment variables
 app.get('/json', (req, res) => {
   const message = 'Hello json';
 
@@ -27,12 +33,6 @@ app.get('/json', (req, res) => {
       ? message.toUpperCase()
       : message
   });
-});
-
-// 7. Root-Level Request Logger Middleware
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.path} - ${req.ip}`);
-  next();
 });
 
 // 8. Chain Middleware
@@ -60,7 +60,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // 12. Get Data from POST Requests
 app.post('/name', (req, res) => {
   const { first, last } = req.body;
-  res.json({ name: `${first} ${last}` });
+
+  res.json({
+    name: `${first} ${last}`
+  });
 });
 
 module.exports = app;
