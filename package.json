@@ -1,17 +1,16 @@
+
 {
-  "name": "fcc-basic-node-express",
-  "version": "1.0.0",
-  "description": "freeCodeCamp Basic Node and Express exercises",
-  "main": "myApp.js",
-  "scripts": {
-    "start": "node myApp.js"
-  },
+  "name": "fcc-learn-node-with-express",
+  "version": "0.1.0",
   "dependencies": {
-    "express": "^4.21.2",
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
-    "body-parser": "^1.20.3"
+    "express": "^4.21.2",
+    "fcc-express-bground": "https://github.com/freeCodeCamp/fcc-express-bground-pkg.git"
   },
-  "engines": {
-    "node": ">=18"
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
   }
 }
