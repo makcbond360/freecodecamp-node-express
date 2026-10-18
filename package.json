@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "description": "freeCodeCamp Basic Node and Express exercises",
   "main": "myApp.js",
-  "scripts": {"start": "node myApp.js"},
-  "dependencies": {"express": "^4.21.2", "dotenv": "^16.4.7"},
-  "engines": {"node": ">=18"}
+  "scripts": {
+    "start": "node myApp.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "dotenv": "^16.4.7",
+    "body-parser": "^1.20.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
 }
