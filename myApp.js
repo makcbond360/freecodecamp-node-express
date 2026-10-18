@@ -5,6 +5,23 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
+app.use((req, res, next) => {
+  res.setHeader(
+    'Access-Control-Allow-Origin',
+    'https://www.freecodecamp.org'
+  );
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET, POST, OPTIONS'
+  );
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Content-Type'
+  );
+  next();
+});
+
+
 console.log('Hello World');
 
 // Logger middleware
